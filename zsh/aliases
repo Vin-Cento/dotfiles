@@ -1,2 +1,63 @@
-# Add you personal aliases here
-alias t="task"
+# my personal aliases
+alias b='bat'
+alias tree='tree --dirsfirst -C'
+alias diff='diff --color'
+alias grep='grep --color'
+# faster
+alias l='exa --icons -h --group-directories-first'
+alias ll='exa --icons -lh --grid --group-directories-first'
+alias la='exa --icons --group-directories-first -lah --grid'
+alias v='nvim'
+alias gitd='/usr/bin/git --git-dir=$HOME/.cfg/.git/ --work-tree=$HOME'
+alias gl='git log --all --decorate --graph'
+
+alias pacman='sudo pacman'
+alias openvpn='sudo openvpn'
+alias kill='sudo kill'
+
+alias f='lfcd'
+alias p='ipython'
+
+alias t='task'
+
+alias fv='fd . --type f --hidden --full-path ~/.config/nvim --exclude pack | fzf-tmux -p | xargs -r nvim'
+alias fc='fd . --type f --hidden --full-path ~/dotfiles --exclude pack | fzf-tmux -p | xargs -r nvim'
+alias ff='fd . --type f --hidden --full-path . | fzf-tmux -p | xargs -r nvim'
+
+alias vw='nvim ~/Documents/.vimwiki/index.md'
+alias vz='nvim ~/.config/zsh/.zshrc'
+alias vk='nvim ~/.config/sxhkd/sxhkdrc'
+alias vh='nvim ~/.cache/.zsh_history'
+alias vl='nvim ~/.config/lf/lfrc'
+alias va='nvim ~/.config/zsh/aliases'
+alias vt='nvim ~/.config/tmux/tmux.conf'
+alias ft='nvim -o $(find ~/Documents/dotoo-files/ -type f -not -path "*/.git/*" | fzf)'
+alias tc='tar zcvf'
+alias tx='tar zxvf'
+alias sd='sr duckduckgo'
+alias sg='sr google'
+alias vj='nvim ~/Documents/.Journal/'
+
+alias ct='fd . --type f --hidden --full-path ~/Templates | fzf-tmux -p | xargs -I {} cp {} .'
+
+alias todo='nvim ~/Code/todo.conky/todo/todo.md'
+
+alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+alias re='ffmpeg -f x11grab -s 2160x1350 -i :0.0 -f alsa -i hw:0'
+alias tw='taskwarrior-tui'
+# alias re='ffmpeg -f x11grab -s 2160x1350 -probesize 42M -i :0.0 -f pulse -ac 2 -i 6'
+# alias re='ffmpeg -f x11grab -s 1980x1080 -probesize 42M -i :0.0 -f pulse -ac 2 -i 7'
+
+# AWS
+source ${BMA_HOME:-$HOME/.bash-my-aws}/aliases
+source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
+
+# uncomment when using node
+# source /usr/share/nvm/init-nvm.sh
+# source "/home/vinny/.sdkman/bin/sdkman-init.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="$XDG_DATA_HOME/.sdkman"
+# [[ -s "$XDG_DATA_HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$XDG_DATA_HOME/.sdkman/bin/sdkman-init.sh"
+
+# source /home/vinny/.config/broot/launcher/bash/br
