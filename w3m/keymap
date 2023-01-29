@@ -1,0 +1,55 @@
+#scrolling....................................................................
+keymap k        DOWN
+keymap j        UP
+keymap l        RIGHT
+keymap h        LEFT
+keymap J        NEXT_PAGE
+keymap K        PREV_PAGE
+keymap gg       BEGIN						  #Go to the top.
+keymap G        END						    #Go to the end.
+keymap D        NEXT						  #Go forward in history
+keymap S        PREV						  #Go back in history
+
+keymap 0        LINE_BEGIN				#Go to first column in current line
+keymap $        LINE_END					#Go to last column in current line
+keymap w        NEXT_WORD
+keymap b        PREV_WORD
+
+keymap ab       ADD_BOOKMARK			#Add current page to bookmarks
+keymap vb       VIEW_BOOKMARK			#Show bookmarks
+
+keymap !        COMMAND
+keymap *        OPTIONS						#Option setting panel
+keymap M-r      REINIT
+
+
+# tabs and links
+keymap sd       COMMAND     "TAB_GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK; SUBMIT"
+keymap x        CLOSE_TAB
+keymap R        NEXT_TAB					#Change focus to left tab
+keymap E        PREV_TAB					#Change focus to right tab
+keymap r        RELOAD						#Reload current page.
+keymap O        TAB_GOTO
+keymap ef       PEEK_LINK					#Show link under cursor.
+keymap T        COMMAND     "TAB_GOTO;"
+keymap gc       COMMAND     "READ_SHELL 'xclip -i -out clipboard 2> /dev/null'; GOTO_LINK"
+# keymap M-I DISPLAY_IMAGE
+
+
+#### toggle hinting mode (vimium similar)
+keymap f-SPC    COMMAND     "SET_OPTION display_link_number=toggle ; RESHAPE"
+#### jump to link number (e.g press 3ff) and hide hinting mode (similar to gg in vim)
+keymap ff       COMMAND     "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN"
+#### open current cursor link in new tab and hide hinting mode
+keymap ft       COMMAND     "SET_OPTION display_link_number=0 ; RESHAPE ; TAB_LINK"
+#### copy link to clipboard (e.g press f-SPC then 4fy to yank url)
+keymap fy       COMMAND "   SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'url=%s ; printf "%b" "$url" > /tmp/clipbrd.txt ; printf "%b" "$url" | xsel -b 2>/dev/null ; printf "%b" "$url" | tmux load-buffer - ; printf '%s' "$url" | wl-copy 2>/dev/null  ; printf '%s' "$url" | clip 2>/dev/null ; printf '%s' "$url" > /dev/clipboard 2>/dev/null ; printf '%s' "$url" | pbcopy 2>/dev/null ; printf '%s' "$url" | termux-clipboard-set 2>/dev/null'"
+#### jump to link number and open it
+keymap fo       COMMAND     "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+#### jump to link number and open it in new tab
+keymap fn       COMMAND     "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
+keymap yy       EXTERN      "echo -n %s | xclip -i -selection clipboard"
+
+keymap ,-.      COMMAND     "READ_SHELL 'python3 -m readability.readability -u $W3M_URL 2> /dev/null' ; VIEW ; DELETE_PREVBUF"
+
+keymap ZQ       EXIT						#Quit w3m without confirmation.

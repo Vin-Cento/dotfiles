@@ -1,0 +1,6 @@
+#!/bin/bash
+# process substitution example:
+ueberzug layer --parser bash 0< <(
+    declare -Ap add_command=([action]="add" [identifier]="example0" [x]="0" [y]="0" [max_width]="30" [max_height]="30" [path]="$1")
+    read
+)

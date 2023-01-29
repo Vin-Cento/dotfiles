@@ -1,0 +1,187 @@
+super + a
+  bspc desktop 1 --focus
+
+super + s
+	bspc desktop 2 --focus
+
+super + d
+  bspc desktop 3 --focus
+
+super + f
+  bspc desktop 4 --focus
+
+super + 5
+  bspc desktop 5 --focus
+
+super + 6
+  bspc desktop 6 --focus
+
+super + shift + s
+	slack
+
+
+# audio
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +3%
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -3%
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86MonBrightnessUp
+	brightnessctl s 3%+
+XF86MonBrightnessDown
+	brightnessctl s 3%-
+
+super + XF86AudioRaiseVolume
+	mpc next
+super + XF86AudioLowerVolume
+	mpc prev
+super + XF86AudioMute
+	mpc toggle
+
+super + t
+  echo "$(xclip -out sel clipboard)" | festival --tts
+
+super + Return 
+  tdrop -a kitty
+
+super + shift + Return
+  kitty
+
+# program launcher
+super + @space 
+	rofi -show drun
+
+
+super + c
+  output_bookmarks.sh
+
+
+super + shift+ w
+	networkmanager_dmenu -fn 'Mononoki Mono-12'
+
+super + e
+	download_video
+
+super + shift + e
+  download_audio
+
+
+super +  m
+	kitty -e neomutt
+
+super + p
+	passmenu -fn 'Mononoki Mono-12'
+
+super + shift + p
+	jupyter-lab
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+	pkill -9 "polybar"
+	polybar -q top -c ~/.config/polybar/hack/config.ini &
+
+Print
+ 	flameshot gui
+
+super + Print
+	sxiv ~/Downloads/ScreenShots
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + r
+	bspc wm -r
+
+# close and kill
+super + {_,shift + }semicolon
+	bspc node -{c,k}
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + shift + g
+	bspc node -s biggest.window
+
+# add to tabbed container
+ctrl + alt + {Left,Down,Up,Right}
+    tabc attach $(bspc query -N -n) {$(bspc query -N -n west),$(bspc query -N -n south),$(bspc query -N -n north),$(bspc query -N -n east)}
+
+# create/remove from tabbed container
+super + z 
+    id=$(bspc query -N -n); \
+    [[ "$(tabc printclass $id)" == "tabbed" ]] \
+    && tabc detach $id \
+    || tabc create $id 
+
+# toggle autoattach in tabbed container
+super + shift + z 
+    tabc autoattach $(bspc query -N -n) 
+
+
+#
+# state/flags
+#
+
+# set the window state
+super + {n,shift + n,shift + f}
+	bspc node -t {tiled,pseudo_tiled,fullscreen}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {u,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+escape + a
+    bsp desktop -f '^{1}'
+
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}

@@ -1,0 +1,23 @@
+{
+	"name": "Vimium C",
+	"@time": "8/30/2022, 10:44:38 AM",
+	"time": 1661874278152,
+	"environment": {
+		"extension": "1.99.3",
+		"platform": "linux",
+		"firefox": 104
+	},
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"mapKey e u",
+		"mapKey E J",
+		"mapKey R K",
+		"mapKey S H",
+		"mapKey D L",
+		""
+	],
+	"linkHintCharacters": "asdfqwerzxcv",
+	"searchUrl": "https://duckduckgo.com/?q=$s",
+	"vimSync": true
+}

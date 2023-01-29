@@ -1,0 +1,50 @@
+snippet pd_apply
+	def $2():
+		${3:pass}
+
+	${1:df}.apply(lambda x: ${2:func}())
+
+snippet pd_bar
+	df.plot.bar(x="${1:x_colname}", y="${2:y_colname}", align="center")
+	plt.xlabel("${3:xlabel}")
+	plt.ylabel("${4:ylabel}")
+
+snippet ignored
+	from contextlib import contextmanager
+	@contextmanager
+	def ignored(*exceptions):
+			try:
+					yield
+			except exceptions:
+					pass
+
+snippet import
+	import ${1:package}
+
+snippet import_matplotlib
+	from 
+
+snippet fimport
+	from ${1:package} import ${2:module}
+
+snippet for
+	for ${1:item} in ${2:items}:
+		${0:code}
+
+snippet f
+	${1:var}: float = ${2:float}
+
+snippet s
+	${1:var}: float = ${2:str}
+
+snippet i
+	${1:var}: int = ${2:int}
+
+snippet l
+	${1:var}: list = [${2:list}]
+
+snippet d
+	${1:var}: dict = {${2:key}:${3:value}}
+
+snippet t
+	${1:var}: tuple = (${2:value})

@@ -1,0 +1,12 @@
+[submodule "spaceship-prompt"]
+	path = zsh/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt.git
+[submodule "z.lua"]
+	path = zsh/z.lua
+	url = https://github.com/skywind3000/z.lua.git
+[submodule "zsh/spaceship-prompt"]
+	path = zsh/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt.git
+[submodule "zsh/z.lua"]
+	path = zsh/z.lua
+	url = https://github.com/skywind3000/z.lua.git

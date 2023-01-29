@@ -1,0 +1,4 @@
+#!/bin/bash
+
+bspc desktop 7 --focus
+alacritty -e nvim ~/Documents/dotoo-files/todo.dotoo

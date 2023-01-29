@@ -1,0 +1,6 @@
+#!/bin/bash
+
+temp_file="/tmp/nvimtutor"$(date +%s)
+cp ~/.local/share/scripts/nvimtutor.txt $temp_file
+nvim $temp_file
+rm $temp_file

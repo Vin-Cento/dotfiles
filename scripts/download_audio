@@ -1,0 +1,14 @@
+#!/bin/sh
+
+url="$(xclip -out sel clipboard)"
+notify-send "Downloading $url"
+yt-dlp --extract-audio --add-metadata --write-info-json "$url" -P ~/Downloads/unlist/
+
+for file in ~/Downloads/unlist/*.info.json; do
+  old_name=$(yt-dlp --load-info-json "$file" --print filename -o "%(title)s [%(id)s].%(ext)s")
+  new_name=$(yt-dlp --load-info-json "$file" --print filename -o "%(title)s.%(ext)s")
+  new_name=$(echo "$new_name" | sed -e "s/\s\[.*\].webm/.webm/" -e "s/[,'\"(){}]//g" -e "s/ /_/g")
+  mv -v "$HOME/Downloads/unlist/$old_name" "$HOME/Downloads/unlist/$new_name"
+done
+
+rm ~/Videos/unlist/*.info.json

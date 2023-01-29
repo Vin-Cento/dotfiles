@@ -1,0 +1,10 @@
+broswer=$1
+if [[ $(pgrep $broswer) ]]; then
+  if [[ "$broswer" == 'firefox' ]]; then
+    bspc desktop 2 --focus
+  else
+    bspc desktop 2 --focus
+  fi
+else
+  $broswer
+fi

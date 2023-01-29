@@ -1,0 +1,51 @@
+font:
+    normal:
+        family: Hack Nerd Font
+        style: Regular
+        
+    bold:
+        family: Hack Nerd Font
+        style: Bold
+
+    italic:
+        family: Hack Nerd Font
+        style: Italic
+        
+    size: 7.0
+
+colors:
+    primary:
+      background: '#1b1b1b'
+      foreground: '#00ff00'
+
+    # Normal colors
+    normal:
+      black:   '#252525'
+      red:     '#ff0000'
+      green:   '#20b2aa'
+      yellow:  '#8f88ff'
+      blue:    '#40afff'
+      magenta: '#c34efe'
+      cyan:    '#0aefff'
+      white:   '#ffffff'
+
+    # Bright colors
+    bright:
+      black:   '#EDEDED'
+      red:     '#ff27bb' 
+      green:   '#40ddd5'
+      yellow:  '#8f88ff'
+      blue:    '#40afff'
+      magenta: '#c34efe'
+      cyan:    '#01fcff'
+      white:   '#ffffff'
+
+#background_opacity: 0.95
+
+selection:
+    save_to_clipboard: true
+
+mouse:
+    url:
+        launcher:
+            program: brave

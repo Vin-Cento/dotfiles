@@ -1,0 +1,5 @@
+if [[ $(pgrep $TERMINAL) ]]; then
+  bspc desktop 1 --focus
+else
+  $TERMINAL
+fi

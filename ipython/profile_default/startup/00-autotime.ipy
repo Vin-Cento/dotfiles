@@ -1,0 +1,3 @@
+from rich import pretty
+import pandas as pd
+%load_ext autotime
