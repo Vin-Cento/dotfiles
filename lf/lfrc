@@ -154,5 +154,5 @@ map gD cd ~/Documents
 
 map gt cd ~/Templates
 map gm cd ~/Musics
-map gv cd ~/Videos/unlist
+map gv cd ~/Videos
 map gh cd ~/
