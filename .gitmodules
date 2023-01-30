@@ -1,12 +1,6 @@
 [submodule "neovim_config"]
 	path = nvim
-	url = https://github.com/spaceship-prompt/neovim_config.git
-[submodule "spaceship-prompt"]
-	path = zsh/spaceship-prompt
-	url = https://github.com/spaceship-prompt/spaceship-prompt.git
-[submodule "z.lua"]
-	path = zsh/z.lua
-	url = https://github.com/skywind3000/z.lua.git
+	url = https://github.com/Vin-Cento/neovim_config.git
 [submodule "zsh/spaceship-prompt"]
 	path = zsh/spaceship-prompt
 	url = https://github.com/spaceship-prompt/spaceship-prompt.git
