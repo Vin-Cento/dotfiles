@@ -22,6 +22,7 @@ alias t='task'
 
 alias fv='fd . --type f --hidden --full-path ~/.config/nvim --exclude pack | fzf-tmux -p | xargs -r nvim'
 alias fc='fd . --type f --hidden --full-path ~/dotfiles --exclude pack | fzf-tmux -p | xargs -r nvim'
+alias fC='fd . --type f --hidden --full-path ~/Code --exclude pack | fzf-tmux -p | xargs -r nvim'
 alias ff='fd . --type f --hidden --full-path . | fzf-tmux -p | xargs -r nvim'
 
 alias vw='nvim ~/Documents/.vimwiki/index.md'
