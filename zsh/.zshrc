@@ -1,5 +1,5 @@
 # making it prettier
-if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+# if [[ $TERM == xterm-kitty ]]; then TERM=xterm-256color; fi
 set t_Co=256
 
 # History in cache directory:
