@@ -20,8 +20,10 @@ alias p='ipython'
 
 alias t='task'
 
-alias fv='fd . --type f --hidden --full-path ~/.config/nvim --exclude pack | fzf-tmux -p | xargs -r nvim'
-alias fc='fd . --type f --hidden --full-path ~/dotfiles --exclude pack | fzf-tmux -p | xargs -r nvim'
+alias fv='fd . --type f --hidden --full-path ~/dotfiles/nvim | fzf-tmux -p | xargs -r nvim'
+alias fp='fd . --type f --hidden --full-path ~/Code --exclude .git --exclude packages | fzf-tmux -p | xargs -r nvim'
+alias fc='fd . --type f --hidden --full-path ~/dotfiles --exclude pack --exclude nvim --exclude zsh | fzf-tmux -p | xargs -r nvim'
+alias fz='fd . --type f --hidden --full-path ~/dotfiles/zsh | fzf-tmux -p | xargs -r nvim'
 alias ff='fd . --type f --hidden --full-path . | fzf-tmux -p | xargs -r nvim'
 
 alias vw='nvim ~/Documents/.vimwiki/index.md'
@@ -49,8 +51,8 @@ alias tw='taskwarrior-tui'
 # alias re='ffmpeg -f x11grab -s 1980x1080 -probesize 42M -i :0.0 -f pulse -ac 2 -i 7'
 
 # AWS
-source ${BMA_HOME:-$HOME/.bash-my-aws}/aliases
-source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
+# source ${BMA_HOME:-$HOME/.bash-my-aws}/aliases
+# source ${BMA_HOME:-$HOME/.bash-my-aws}/bash_completion.sh
 
 # uncomment when using node
 # source /usr/share/nvm/init-nvm.sh
